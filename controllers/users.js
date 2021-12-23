@@ -23,3 +23,30 @@ module.exports.getUser = (req, res) => {
     .then(user => res.send({data: user}))
     .catch(() => res.status(500).send({message: 'Server error'}));
 };
+
+module.exports.updateProfile = (req, res) => {
+  const { name, about } = req.body;
+  User.findByIdAndUpdate(
+    userId,
+    { name, about },
+    {
+      new: true,
+      runValidators: true,
+    }
+  )
+  .then(user => res.send({data: user}))
+  .catch(() => res.status(500).send({message: 'Server error'}));
+};
+
+module.exports.updateAvatar = (req, res) => {
+  const { avatar } = req.body;
+  User.findByIdAndUpdate(userId,
+    { avatar },
+    {
+      new: true,
+      runValidators: true,
+    }
+  )
+  .then(user => res.send({data: user}))
+  .catch(() => res.status(500).send({message: 'Server error'}));
+};

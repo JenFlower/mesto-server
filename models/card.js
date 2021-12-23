@@ -13,14 +13,14 @@ const cardSchema = new mongoose.Schema({
   },
   owner: {  // ссылка на модель карточки автора
     type: mongoose.Schema.Types.ObjectId,
-    default: [],
+    ref: 'user',
     required: true,
   },
-  likes: {  //список лайкнувших пост пользователей
+  likes: [{
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    ref: 'user',
     default: []
-  },
+  }],
   createdAt: {
     type: Date,
     default: Date.now
