@@ -12,12 +12,12 @@ const cardSchema = new mongoose.Schema({
     required: true,
   },
   owner: {  // ссылка на модель карточки автора
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     default: [],
     required: true,
   },
   likes: {  //список лайкнувших пост пользователей
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     default: []
   },
